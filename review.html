@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Remitly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <link rel="icon" type="image/favicon" href="images/favicon-.webp">
+    <script src="js/final-features.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body data-page="review">
+    <div class="app-shell">
+      <header class="app-header">
+  <div class="header-left">
+    <button
+      class="header-icon-btn"
+      type="button"
+      data-back
+      aria-label="Back"
+    >
+      ←
+    </button>
+  </div>
+  <div class="header-title">
+    <div class="header-logo"><img src="images/logo.svg" alt="logo" style="width: 26px; height: 26px;">
+          </div>
+  </div>
+  <div class="header-right">
+    <button
+      class="header-icon-btn menu-toggle"
+      aria-label="Menu"
+      type="button"
+    >
+      ☰
+    </button>
+  </div>
+</header>
+<div class="progress-container">
+  <div class="progress-track"></div>
+  <div class="progress-fill"></div>
+</div>
+
+      <div class="progress-container">
+        <div class="progress-track"></div>
+        <div class="progress-fill"></div>
+      </div>
+
+      <main class="app-content">
+        <div class="form-section-title">Review details</div>
+
+        <div class="review-card">
+          <div class="review-row">
+            <div class="review-label">You send</div>
+            <div class="review-value" id="review-amount">—</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-row">
+            <div class="review-label">From</div>
+            <div class="review-value" id="review-send">—</div>
+          </div>
+          <div class="review-row">
+            <div class="review-label">To</div>
+            <div class="review-value" id="review-dest">—</div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-row">
+            <div class="review-label">Recipient</div>
+            <div class="review-value" id="review-name">—</div>
+          </div>
+          <div class="review-row">
+            <div class="review-label">Bank account</div>
+            <div class="review-value" id="review-bank">—</div>
+          </div>
+          <div class="review-row">
+            <div class="review-label">Reason</div>
+            <div class="review-value" id="review-reason">—</div>
+          </div>
+        </div>
+
+        <div class="info-banner">
+          <div>
+            By tapping Pay, you agree that the information above is correct and
+            that your card will be charged for this transfer.
+          </div>
+        </div>
+
+        <div class="page-footer">
+          <button
+  id="btn-review-pay"
+  type="button"
+  class="btn-primary"
+  onclick="event.preventDefault();"
+>
+  Pay
+</button>
+        </div>
+      </main>
+    </div>
+    <div class="menu-backdrop" id="menu-backdrop">
+  <div class="menu-panel" id="menu-sheet">
+    <button class="menu-item" data-action="Contact us">Contact us</button>
+    <button class="menu-item" data-action="Help">Help</button>
+    <button class="menu-item" data-action="About us">About us</button>
+  </div>
+</div>
+
+  </body>
+</html>

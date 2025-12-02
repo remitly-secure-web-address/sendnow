@@ -1,0 +1,170 @@
+[
+  {
+    "code": "US",
+    "name": "United States",
+    "currencyCode": "USD",
+    "currencyName": "US Dollar",
+    "flag": "🇺🇸",
+    "usdRate": 1
+  },
+  {
+    "code": "NG",
+    "name": "Nigeria",
+    "currencyCode": "NGN",
+    "currencyName": "Nigerian Naira",
+    "flag": "🇳🇬",
+    "usdRate": 1494.13
+  },
+  {
+    "code": "GB",
+    "name": "United Kingdom",
+    "currencyCode": "GBP",
+    "currencyName": "British Pound",
+    "flag": "🇬🇧",
+    "usdRate": 0.78
+  },
+  {
+    "code": "CA",
+    "name": "Canada",
+    "currencyCode": "CAD",
+    "currencyName": "Canadian Dollar",
+    "flag": "🇨🇦",
+    "usdRate": 1.36
+  },
+  {
+    "code": "DE",
+    "name": "Germany",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "flag": "🇩🇪",
+    "usdRate": 0.92
+  },
+  {
+    "code": "FR",
+    "name": "France",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "flag": "🇫🇷",
+    "usdRate": 0.92
+  },
+  {
+    "code": "ES",
+    "name": "Spain",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "flag": "🇪🇸",
+    "usdRate": 0.92
+  },
+  {
+    "code": "IT",
+    "name": "Italy",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "flag": "🇮🇹",
+    "usdRate": 0.92
+  },
+  {
+    "code": "IE",
+    "name": "Ireland",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "flag": "🇮🇪",
+    "usdRate": 0.92
+  },
+  {
+    "code": "KE",
+    "name": "Kenya",
+    "currencyCode": "KES",
+    "currencyName": "Kenyan Shilling",
+    "flag": "🇰🇪",
+    "usdRate": 129.5
+  },
+  {
+    "code": "GH",
+    "name": "Ghana",
+    "currencyCode": "GHS",
+    "currencyName": "Ghanaian Cedi",
+    "flag": "🇬🇭",
+    "usdRate": 15.0
+  },
+  {
+    "code": "IN",
+    "name": "India",
+    "currencyCode": "INR",
+    "currencyName": "Indian Rupee",
+    "flag": "🇮🇳",
+    "usdRate": 83.5
+  },
+  {
+    "code": "CN",
+    "name": "China",
+    "currencyCode": "CNY",
+    "currencyName": "Chinese Yuan",
+    "flag": "🇨🇳",
+    "usdRate": 7.2
+  },
+  {
+    "code": "PH",
+    "name": "Philippines",
+    "currencyCode": "PHP",
+    "currencyName": "Philippine Peso",
+    "flag": "🇵🇭",
+    "usdRate": 57.0
+  },
+  {
+    "code": "PK",
+    "name": "Pakistan",
+    "currencyCode": "PKR",
+    "currencyName": "Pakistani Rupee",
+    "flag": "🇵🇰",
+    "usdRate": 280.0
+  },
+  {
+    "code": "BD",
+    "name": "Bangladesh",
+    "currencyCode": "BDT",
+    "currencyName": "Taka",
+    "flag": "🇧🇩",
+    "usdRate": 120.0
+  },
+  {
+    "code": "MX",
+    "name": "Mexico",
+    "currencyCode": "MXN",
+    "currencyName": "Mexican Peso",
+    "flag": "🇲🇽",
+    "usdRate": 18.2
+  },
+  {
+    "code": "BR",
+    "name": "Brazil",
+    "currencyCode": "BRL",
+    "currencyName": "Brazilian Real",
+    "flag": "🇧🇷",
+    "usdRate": 5.2
+  },
+  {
+    "code": "ZA",
+    "name": "South Africa",
+    "currencyCode": "ZAR",
+    "currencyName": "South African Rand",
+    "flag": "🇿🇦",
+    "usdRate": 18.9
+  },
+  {
+    "code": "AE",
+    "name": "United Arab Emirates",
+    "currencyCode": "AED",
+    "currencyName": "Dirham",
+    "flag": "🇦🇪",
+    "usdRate": 3.67
+  },
+  {
+    "code": "SA",
+    "name": "Saudi Arabia",
+    "currencyCode": "SAR",
+    "currencyName": "Riyal",
+    "flag": "🇸🇦",
+    "usdRate": 3.75
+  }
+]

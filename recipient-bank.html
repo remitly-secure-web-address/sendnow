@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Remitly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <link rel="icon" type="image/favicon" href="images/favicon-.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body data-page="bank">
+    <div class="app-shell">
+      <header class="app-header">
+  <div class="header-left">
+    <button
+      class="header-icon-btn"
+      type="button"
+      data-back
+      aria-label="Back"
+    >
+      ←
+    </button>
+  </div>
+  <div class="header-title">
+    <div class="header-logo"><img src="images/logo.svg" alt="logo" style="width: 26px; height: 26px;">
+          </div>
+  </div>
+  <div class="header-right">
+    <button
+      class="header-icon-btn menu-toggle"
+      aria-label="Menu"
+      type="button"
+    >
+      ☰
+    </button>
+  </div>
+</header>
+<div class="progress-container">
+  <div class="progress-track"></div>
+  <div class="progress-fill"></div>
+</div>
+
+      <div class="progress-container">
+        <div class="progress-track"></div>
+        <div class="progress-fill"></div>
+      </div>
+
+      <main class="app-content">
+        <form id="bank-form">
+          <div class="form-section-title">Recipient Bank Details</div>
+          <div class="form-section-subtitle">
+            Enter your recipient's Bank account details.
+          </div>
+
+          <div class="form-group">
+            <label for="nuban" class="label">NUBAN</label>
+            <input
+              type="tel"
+              id="nuban"
+              class="input"
+              placeholder="e.g., 1234567890"
+              inputmode="numeric"
+            />
+            <div class="error-text" id="nuban-error"></div>
+          </div>
+
+          <div class="form-group">
+            <div class="info-banner">
+              <div class="info-icon">⚠️</div>
+              <div>
+                Please verify your recipient's account information. You can lose
+                the transfer amount if incorrect information is provided.
+              </div>
+            </div>
+          </div>
+
+          <div class="page-footer">
+            <button
+              id="btn-bank-continue"
+              type="submit"
+              class="btn-primary"
+              disabled
+            >
+              Continue
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <div class="menu-backdrop" id="menu-backdrop">
+  <div class="menu-panel" id="menu-sheet">
+    <button class="menu-item" data-action="Contact us">Contact us</button>
+    <button class="menu-item" data-action="Help">Help</button>
+    <button class="menu-item" data-action="About us">About us</button>
+  </div>
+</div>
+
+  </body>
+</html>

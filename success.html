@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Remitly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <link rel="icon" type="image/favicon" href="images/favicon-.webp">
+    <script src="js/final-features.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body data-page="success">
+    <div class="app-shell">
+      <header class="app-header">
+  <div class="header-left">
+    <button
+      class="header-icon-btn"
+      type="button"
+      data-back
+      aria-label="Back"
+    >
+      ←
+    </button>
+  </div>
+  <div class="header-title">
+    <div class="header-logo"><img src="images/logo.svg" alt="logo" style="width: 26px; height: 26px;">
+          </div>
+  </div>
+  <div class="header-right">
+    <button
+      class="header-icon-btn menu-toggle"
+      aria-label="Menu"
+      type="button"
+    >
+      ☰
+    </button>
+  </div>
+</header>
+<div class="progress-container">
+  <div class="progress-track"></div>
+  <div class="progress-fill"></div>
+</div>
+
+      <div class="progress-container">
+        <div class="progress-track"></div>
+        <div class="progress-fill"></div>
+      </div>
+
+      <main class="app-content">
+        <section class="success-hero">
+          <div class="success-badge"><img src="images/success.PNG
+            " style="width: 110px; height: 90px;" alt=""></div>
+          <div class="success-title">Transfer successful</div>
+          <div class="success-text" id="success-summary">
+            Your transfer has been sent.
+          </div>
+
+          <div class="tracking-box">
+            <div class="tracking-label">Tracking number</div>
+            <div id="success-tracking">—</div>
+          </div>
+        </section>
+
+        <div class="page-footer">
+          <button
+            class="btn-primary"
+            type="button"
+            onclick="goTo('index.html')"
+          >
+            Send another transfer
+          </button>
+        </div>
+      </main>
+    </div>
+    <div class="menu-backdrop" id="menu-backdrop">
+  <div class="menu-panel" id="menu-sheet">
+    <button class="menu-item" data-action="Contact us">Contact us</button>
+    <button class="menu-item" data-action="Help">Help</button>
+    <button class="menu-item" data-action="About us">About us</button>
+  </div>
+</div>
+
+  </body>
+</html>

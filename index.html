@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Remitly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <link rel="icon" type="image/favicon" href="images/favicon-.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body data-page="index">
+    <div class="app-shell">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <!-- no back button on first page -->
+        </div>
+        <div class="header-title">
+          <div class="header-logo"><img src="images/logo.svg" alt="logo" style="width: 26px; height: 26px;">
+          </div>
+          <div class="header-text" id="header-destination-text">
+            Where are you sending to?
+          </div>
+        </div>
+        <div class="header-right">
+          <button
+            class="header-icon-btn menu-toggle"
+            aria-label="Menu"
+            type="button"
+          >
+            <span style="font-size: 18px">☰</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- No progress bar on index -->
+
+      <main class="app-content">
+        <section class="card">
+          <div class="card-header-title" id="card-header-title">
+            Where are you sending to?
+          </div>
+          <div class="subtext">Select where you’re sending from and to.</div>
+
+          <div class="country-row" style="margin-top: 12px">
+            <button
+              type="button"
+              class="country-pill"
+              id="sender-pill"
+              aria-label="Sender country"
+            >
+              <div class="country-info">
+                <div class="flag-circle">🌎</div>
+                <div>
+                  <div class="country-text-main">Choose country</div>
+                  <div class="country-text-sub">Currency</div>
+                </div>
+              </div>
+              <span>▾</span>
+            </button>
+
+            <button
+              type="button"
+              class="country-pill"
+              id="recipient-pill"
+              aria-label="Destination country"
+            >
+              <div class="country-info">
+                <div class="flag-circle">🌍</div>
+                <div>
+                  <div class="country-text-main">Choose destination</div>
+                  <div class="country-text-sub">Currency</div>
+                </div>
+              </div>
+              <span>▾</span>
+            </button>
+          </div>
+
+          <div class="exchange-rate" id="exchange-label"></div>
+
+          <div class="amount-row">
+            <div style="flex: 1">
+              <label class="label" for="amount-send">Amount to send</label>
+              <input
+                id="amount-send"
+                class="input"
+                type="number"
+                step="0.01"
+                min="0"
+                placeholder="0.00"
+              />
+            </div>
+          </div>
+          <div class="amount-preview" id="amount-preview"></div>
+
+          <div style="margin-top: 16px">
+            <button
+              id="btn-send-money"
+              class="btn-primary"
+              type="button"
+              disabled
+            >
+              Send money
+            </button>
+          </div>
+        </section>
+
+        <section class="promo-section">
+          <div class="promo-item">
+            <div class="promo-icon"><img src="images/1.PNG" style="width: 110px; height: 50px;" alt=""></div>
+            <div class="promo-title">New customer offer</div>
+            <div class="promo-text">
+              Get started now with a special offer on your first transfer.
+            </div>
+          </div>
+
+          <div class="promo-item">
+            <div class="promo-icon"><img src="images/2.PNG" style="width: 110px; height: 50px;" alt=""></div>
+            <div class="promo-title">We’re here to help you send</div>
+            <div class="promo-text">
+              Have questions? Chat or talk to our team 24/7.
+            </div>
+          </div>
+
+          <div class="promo-item">
+            <div class="promo-icon"><img src="images/3.PNG" style="width: 110px; height: 50px;" alt=""></div>
+            <div class="promo-title">Send worry-free</div>
+            <div class="promo-text">
+              Need to change details? You can edit active transfers here in the
+              app.
+            </div>
+          </div>
+
+          <div class="page-footer">
+            <button
+              class="btn-secondary-outline"
+              type="button"
+              id="btn-get-started"
+              disabled
+            >
+              Get started
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Country Modal -->
+    <div class="modal-backdrop" id="country-modal" aria-hidden="true">
+      <div class="modal-panel">
+        <div class="modal-header">
+          <div class="modal-title">Choose country</div>
+          <button
+            id="country-close"
+            class="header-icon-btn"
+            type="button"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </div>
+        <div class="modal-search">
+          <input
+            type="text"
+            id="country-search"
+            class="input"
+            placeholder="Search country or currency"
+          />
+        </div>
+        <div class="country-list" id="country-list"></div>
+      </div>
+    </div>
+
+    <!-- Menu Sheet (shared structure used on all pages) -->
+    <div class="menu-backdrop" id="menu-backdrop">
+      <div class="menu-panel" id="menu-sheet">
+        <button class="menu-item" data-action="Contact us">Contact us</button>
+        <button class="menu-item" data-action="Help">Help</button>
+        <button class="menu-item" data-action="About us">About us</button>
+      </div>
+    </div>
+  </body>
+</html>
