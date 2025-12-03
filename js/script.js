@@ -882,9 +882,11 @@ async function initPaymentCardPage() {
   validate();
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (!validate()) return;
-    goTo("review.html");
+    if (!validate()) {
+      e.preventDefault();
+      return;
+    }
+    // Let the form submit normally - final-features.js will intercept it
   });
 }
 
@@ -1043,4 +1045,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Menu sheet is shared
   initMenuSheet();
+
 });
